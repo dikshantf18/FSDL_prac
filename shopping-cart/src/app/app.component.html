@@ -1,0 +1,21 @@
+<div style="padding: 20px; max-width: 700px; margin: auto;">
+  <h2>🛒 Angular Shopping Cart</h2>
+
+  <h3>🧃 Available Items</h3>
+  <ul>
+    <li *ngFor="let item of availableItems">
+      {{ item.name }} - ${{ item.price }}
+      <button (click)="addToCart(item)">Add to Cart</button>
+    </li>
+  </ul>
+
+  <h3>🛍️ Your Cart</h3>
+  <ul>
+    <li *ngFor="let item of cart; let i = index">
+      {{ item.name }} - ${{ item.price }}
+      <button (click)="removeFromCart(i)">Remove</button>
+    </li>
+  </ul>
+
+  <h3>Total: ${{ getTotal() }}</h3>
+</div>

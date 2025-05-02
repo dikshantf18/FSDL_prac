@@ -1,0 +1,25 @@
+<div style="padding: 20px; max-width: 600px; margin: auto;">
+  <h2>Student Record Manager</h2>
+  
+  <form (ngSubmit)="addStudent()" #studentForm="ngForm">
+    <input type="text" [(ngModel)]="student.name" name="name" placeholder="Name" required />
+    <input type="number" [(ngModel)]="student.rollNo" name="rollNo" placeholder="Roll No" required />
+    <input type="text" [(ngModel)]="student.grade" name="grade" placeholder="Grade" required />
+    <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+  </form>
+
+  <table border="1" style="width: 100%; margin-top: 20px;">
+    <tr>
+      <th>Name</th>
+      <th>Roll No</th>
+      <th>Grade</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let s of students; let i = index">
+      <td>{{ s.name }}</td>
+      <td>{{ s.rollNo }}</td>
+      <td>{{ s.grade }}</td>
+      <td><button (click)="editStudent(i)">Edit</button></td>
+    </tr>
+  </table>
+</div>
